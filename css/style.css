@@ -992,18 +992,19 @@ background-color: rgb(133, 139, 145);
 }
 
 .email{
-	border: 1px solid rgb(255, 255, 255, 0.2);
-	background: rgb(255, 255, 255, 0.1);
+	border: 1px solid rgb(255, 255, 255, 0.0);
+	background: rgb(255, 255, 255, 0.2);
 	width: 255px;
 	height: 40px;
 	border-radius: 8px;
 	font-size: 14px;
 	line-height: 21px;
+	color: cyan;
 }
 
 .email__input {
 	border: none; 
-	background: rgb(255, 255, 255, 0.1);
+	background: rgb(255, 255, 255, 0.0);
 	width: 220px;
 	height: 40px;
 	border-radius: 8px;
