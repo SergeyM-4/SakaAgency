@@ -958,6 +958,10 @@ background-color: rgb(133, 139, 145);
 	margin-bottom: 50px;
 	padding-top: 50px;
 }
+.form__container:hover .form__heading {
+	text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+	transition: all 1s ease 0s;
+	}
 .form__block-form {
 	padding-bottom: 50px;
 	
