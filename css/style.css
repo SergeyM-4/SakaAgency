@@ -55,6 +55,8 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 	
 	background-color: rgb(133, 139, 145);
 }
+
+
 /*------ШАПКА----------------------------------------------------------------------------------------------------*/
 .header {
 	width: 100%;
@@ -67,28 +69,24 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 	justify-content: space-between;
 	margin-bottom: 50px;
 }
-
 .header__logo {
 	font-size: 30px;
 	font-weight: 800;
 	line-height: 45px;
 	color: inherit;
+	animation-name: animation1;
+	animation-duration: 3s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 3;
+}
 
+.header__burger{
+	display: none;
 }
-.header__logo:hover {
-transform: rotateY(-360deg);
-transition: all 2s ease 0s;
-}
+
 .header__menu {
 	margin: 0px 40px 0px 40px;
 }
-@media all and (max-width: 977px){
-	
-.header__menu {
-	margin: 0px 20px 0px 20px;
-	}
-}
-
 .menu__list {
 	display: flex;
 	flex-wrap: wrap;
@@ -98,14 +96,6 @@ transition: all 2s ease 0s;
 .menu__item:not(:last-child) {
 	margin: 0 40px 0 0;
 }
-
-@media all and (max-width: 977px){
-	
-	.menu__item:not(:last-child) {
-		margin: 0 20px 0 0;
-		}
-	}
-
 .menu__link {
 	color: inherit;
 	font-size: 14px;
@@ -123,13 +113,28 @@ transition: all 2s ease 0s;
 	margin: 0px 0px 0px 52px;
 }
 
+@media all and (max-width: 990px){
+	
+	.menu__item:not(:last-child) {
+		margin: 0 20px 0 0;
+		}
+	}
 @media all and (max-width: 977px){
 	
 	.header__button {
 		margin: 0px 0px 0px 32px;
 		}
 	}
-@media all and (max-width: 850px){
+	@media all and (max-width: 890px){
+	
+		.header__button {
+			margin: 0px 0px 0px 0px;
+			}
+		}
+		.header__menu {
+			margin: 0px 20px 0px 20px;
+		}
+@media all and (max-width: 818px){
 	.header__button {
 		margin: 30px 0px 0px 0px;
 		}
@@ -143,17 +148,115 @@ transition: all 2s ease 0s;
 	padding: 12.5px 28px 13px 27px;
 	border-radius: 10px;
 }
-@media all and (max-width:584px){
-	.header__container {
-		justify-content: center;
+
+
+/*------------BURGER НАЧАЛО---------------------------------------------------------------------------------------------------------------*/
+
+@media all and (max-width: 767px){
+	body.lock{
+		overflow: hidden;
+	}
+	.header__burger{
+	display: block;
+	position: relative;
+	width: 30px;
+	height: 20px;
+	}
+
+	.header__burger span{
+		background-color: #fff;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		top: 9px;
+		transition: all 0.3s ease 0s;
+		}
+
+	.header__burger::before,
+	.header__burger::after{
+		content: '';
+		background-color: #fff;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		transition: all 0.3s ease 0s;
+	}
+	.header__burger::before{
+		top: 0;
+	}
+	.header__burger::after{
+		bottom: 0 ;
+	}
+	.header__burger.active span{
+		transform: scale(0);
+	}
+	.header__burger.active::before{
+		transform: rotate(45deg);
+		top: 9px;
+		
+	}
+	.header__burger.active::after{
+		transform: rotate(-45deg);
+		bottom: 9px;
+		
+	}
+	.header__menu {
+		position: fixed;
+		top: 0;
+		left: 0px;
+		width: 100%;
+		height: 200px;
+		background-color: rgba(18, 20, 29, 1);
+		z-index: 2;
+		padding: 10px 10px 10px 30px;
+		transform: scale(0);
+		transition: all 0.3s ease 0s;
+		overflow: auto;
+		margin: 100px 20px 0px 0px;
+	}
+	.header__menu.active {
+		transform: scale(1);
+	}
+	.menu__list {
+		display: block;
+	}
+	.menu__item{
+		margin: 0 0 20px 0;
+	}
+	.menu__link {
+		font-size: 18px;
+		line-height: 35px;
 	}
 	.header__button {
-		margin: 50px 0px 0px 0px;
+		margin: 0px 0px 0px 0px;
 		}
-	.menu__list {
-		margin: 30px 0px 0px 0px;
-	}
-}
+		.menu__link:hover {	
+			transform: scale(1);
+			color: rgba(161, 197, 233, 1);
+			transition: all 1s ease 0s;
+		}
+}	
+@media all and (max-width: 500px){
+	.header__button {
+		margin: 20px 0px 0px 0px;
+		}
+		.header__burger {
+			margin: 0px 0px 0px 100px;
+		}
+}	
+@media all and (max-width: 370px){
+		.header__burger {
+			margin: 0px 0px 0px 50px;
+		}
+}	
+
+/*-----BURGER-КОНЕЦ---------------------------------------------*/
+
+
+
+
 /*-------MAIN------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -199,6 +302,10 @@ transition: all 2s ease 0s;
 	font-weight: 800;
 	margin-bottom: 10px;
 }
+.main__container:hover .main__title {
+text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+transition: all 1s ease 0s;
+}
 @media all and (max-width: 764px){
 	.main__title {
 		font-size: 47px;
@@ -232,7 +339,7 @@ transition: all 2s ease 0s;
 /*---------SECTION------------------------------------------------------------------------------------------------------------------*/
 .section__container {
 	min-height: 425px;
-	margin-bottom: 80px;
+	margin-bottom: 50px;
 }
 .section__heading {
 	font-weight: 800;
@@ -240,6 +347,10 @@ transition: all 2s ease 0s;
 	line-height: 70px;
 	margin-bottom: 41px;
 }
+.section__container:hover .section__heading {
+	text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+	transition: all 1s ease 0s;
+	}
 @media all and (max-width: 768px){
 	.section__heading {
 		font-size: 30px;
@@ -335,6 +446,10 @@ transition: all 2s ease 0s;
 	text-align: center;
 	margin-bottom: 20px;
 }
+.section-special__container:hover .section-special__heading {
+	text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+	transition: all 1s ease 0s;
+	}
 @media all and (max-width: 760px){
 	.section-special__heading {
 		font-size: 30px;
@@ -441,7 +556,10 @@ background-color: rgb(133, 139, 145);
 	flex-wrap: wrap;
 	margin-bottom: 50px;
 }
-
+.section-project__container:hover .section-project__heading {
+	text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+	transition: all 1s ease 0s;
+	}
 
 
 .section-project__view-icon {
@@ -465,9 +583,6 @@ background-color: rgb(133, 139, 145);
 	flex: 0 1 48%;
 	margin-bottom: 30px;
 	
-}
-.project:hover {
-	animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .project:nth-child(odd){
@@ -529,6 +644,10 @@ background-color: rgb(133, 139, 145);
 	text-align: center;
 	margin-bottom: 50px;
 }
+.section-founder__container:hover .section-founder__heading {
+	text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+	transition: all 1s ease 0s;
+	}
 .section-founder__block {
 	display: flex;
 	flex-wrap: wrap;
@@ -675,6 +794,10 @@ background-color: rgb(133, 139, 145);
 .head-testimonnial__heading {
 	line-height: 83px;
 }
+.section-testimonial__contauner:hover .head-testimonnial__heading {
+	text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+	transition: all 1s ease 0s;
+	}
 .head-testimonnial__text {
 	font-size: 18px;
 	line-height: 35px;
@@ -778,7 +901,10 @@ background-color: rgb(133, 139, 145);
 	padding-top: 50px;
 	margin-bottom: 48px;
 }
-
+.section-form__container:hover .section-form__heading {
+	text-shadow: 5px 5px 3px rgba(64, 128, 191, 1);
+	transition: all 1s ease 0s;
+	}
 .section-form__button {
 	text-align: center;
 	margin-bottom: 50px;
@@ -1022,3 +1148,9 @@ background-color: rgb(133, 139, 145);
 	width: 16.5px;
 	height: 16.5px;
 }
+/*-----Анимация-----------------------------------------------------------------------------------------------------------------*/
+@keyframes animation1{
+	from {transform: rotateY(0deg)}
+	to {transform: rotateY(360deg)}
+  } 
+  
